@@ -1,0 +1,78 @@
+\documentclass[11pt]{beamer}
+%\documentclass[11pt,aspectration=169]{beamer}% use this instead of the above line if you want your slides to have 16:9 aspect ratio
+
+\title{A Beamer Template for the Dianoia Institute of Philosophy}% specify full title in curly braces, short title in brackets
+\subtitle{with Examples} % specify subtitle, if any
+\date{\today}% specify full event/date in curly braces, short version in brackets
+\author{Joey McCollum}% specify author
+\institute{Institute for Religion and Critical Inquiry\\Australian Catholic University}% specify author institution
+
+\usetheme{dianoia}
+\usefonttheme{serif} % if you want to use sans serif for body text, comment this out
+
+\begin{document}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\section{Examples}
+	\sectionframe
+	\subsection{Lists}
+	\begin{frame}
+		\frametitle{Slide Title}
+		\framesubtitle{Subtitle}
+		An itemized list follows:
+		\begin{itemize}
+			\item Level 1
+			\begin{itemize}
+				\item Level 2
+				\begin{itemize}
+					\item Level 3
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+		\vspace{\baselineskip}
+
+		An enumerated list follows:
+		\begin{enumerate}
+			\item Level 1
+			\begin{enumerate}
+				\item Level 2
+				\begin{enumerate}
+					\item Level 3
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{frame}
+	\subsection{Quotes}
+	\begin{frame}
+		Block quotes are also supported:
+		\begin{quote}
+			How an actual quote should be defined. Blockquote tags should only be used for `quoted' content, because they are presented from paragraphs by screen readers.
+		\end{quote}
+	\end{frame}
+	\subsection{Blocks}
+	\begin{frame}
+		\LaTeX-style blocks using the ACU palette are also supported:
+		\begin{block}{Block}
+			A standard block invoked with the \texttt{block} environment.
+		\end{block}
+
+		\begin{alertblock}{Alert}
+			An alert block invoked with the \texttt{alertblock} environment.
+		\end{alertblock}
+
+		\begin{exampleblock}{Example}
+			An example block invoked with the \texttt{exampleblock} environment.
+		\end{exampleblock}
+	\end{frame}
+	\subsection{Math}
+	\begin{frame}
+		Inline math, such as $e^{\pi i} = -1$, is also possible.\par
+		\vspace{\baselineskip}
+
+		Likewise, the \texttt{equation} environment works in the usual way:
+		\begin{equation}
+			P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+		\end{equation}
+	\end{frame}
+\end{document}

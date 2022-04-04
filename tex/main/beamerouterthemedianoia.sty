@@ -1,0 +1,49 @@
+\mode<presentation>
+
+\RequirePackage{color}
+\definecolor{Black80}{RGB}{116,116,116}
+
+% Set size of left margin
+\setbeamersize{text margin left=0.05\paperwidth}
+
+% Section and subsection titles
+\setbeamertemplate{headline}
+{
+	\ifx\insertsubsection\@empty% if there is no subsection, then add only the section
+		\begin{beamercolorbox}[wd=0.5\paperwidth,ht=0.05\paperheight,leftskip=0.05\paperwidth]{section in head/foot}
+			\usebeamerfont{section}\insertsection%
+		\end{beamercolorbox}
+	\else% otherwise, add both section and subsection, separated by a vertical pipe
+		\begin{beamercolorbox}[wd=0.5\paperwidth,ht=0.05\paperheight,leftskip=0.05\paperwidth]{section in head/foot}
+			{\usebeamerfont{section}\insertsection}{\color{Black80}\large\textsf{ | }}{\usebeamerfont{subsection}\insertsubsection}
+		\end{beamercolorbox}
+	\fi
+}
+% Page number
+\setbeamertemplate{footline}
+{
+		\begin{beamercolorbox}[wd=0.5\paperwidth,dp=0.025\paperheight,leftskip=0.05\paperwidth]{page number in head/foot}
+			% Only print the page number if the current slide is not the title slide
+			\ifnum\thepage>1\relax
+				\usebeamerfont{pagenumber}\insertpagenumber%
+			\fi
+		\end{beamercolorbox}
+}
+% Frame title
+\setbeamertemplate{frametitle}
+{
+	\vskip0.05\paperheight%
+	\ifx\insertframesubtitle\@empty% if there is no frame subtitle, then add only the frame title
+		\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.05\paperwidth]{frametitle}
+			\usebeamerfont{frametitle}\insertframetitle\par%
+		\end{beamercolorbox}
+	\else% otherwise, add both
+		\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.05\paperwidth]{frametitle}
+			\usebeamerfont{frametitle}\insertframetitle\par%
+			\usebeamerfont{framesubtitle}\insertframesubtitle\par%
+		\end{beamercolorbox}
+	\fi
+}
+
+\mode
+<all>

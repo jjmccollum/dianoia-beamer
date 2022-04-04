@@ -1,0 +1,108 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+
+% Settings
+\useinnertheme{dianoia}
+\useoutertheme{dianoia}
+\usecolortheme{dianoia}
+
+\setbeamertemplate{navigation symbols}{}% suppress navigation symbols
+\setbeamertemplate{blocks}[default]% use default blocks with sharp corners and no shadows
+\setbeamertemplate{itemize items}[circle]% use circular bullet points for itemizations
+\setbeamertemplate{enumerate items}[default]% use numbers with no surrounding shapes for enumerations
+\setbeamertemplate{enumerate item}{\insertenumlabel .}% format enumerate item number as a single Arabic numeral
+\setbeamertemplate{enumerate subitem}{\insertenumlabel .}% format enumerate item number as a single Arabic numeral
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel .}% format enumerate item number as a single Arabic numeral
+
+% Quote environment settings
+\renewenvironment{verse}{%
+	\list{}{%
+		\leftmargin1em% add a small margin for the quoted text
+		\rightmargin\leftmargin
+	}
+	\usebeamerfont{verse}
+	\usebeamercolor[fg]{verse}
+	\item\relax
+}
+{\endlist}
+\renewenvironment{quote}{%
+	\list{}{%
+		\leftmargin1em% add a small margin for the quoted text
+		\rightmargin\leftmargin
+	}
+	\usebeamerfont{quote}
+	\usebeamercolor[fg]{quote}
+	\item\relax
+}
+{\endlist}
+\renewenvironment{quotation}{%
+	\list{}{%
+		\leftmargin1em% add a small margin for the quoted text
+		\rightmargin\leftmargin
+	}
+	\usebeamerfont{quotation}
+	\usebeamercolor[fg]{quotation}
+	\item\relax
+}
+{\endlist}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\surroundwithmdframed[
+	topline=false,
+	bottomline=false,
+	rightline=false,
+	linecolor=Black20,
+	linewidth=2pt,
+	skipabove=\topsep,
+	skipbelow=\topsep,
+	leftmargin=0em, % align the bar of the frame with the rest of the text
+	innerleftmargin=0.5em
+]{quote}
+
+% Theme fonts (comment this section out and replace it with \def\titlingfont{\sffamily} if you want to use plain LaTeX)
+\RequirePackage{fontspec}
+\defaultfontfeatures{Scale=MatchLowercase}
+% Serif font
+% Use Georgia if present on the system
+\IfFontExistsTF{Georgia}{
+	\setmainfont[Ligatures=Common]{Georgia}%
+} {
+	% Otherwise, just use the default LaTeX serif face
+}
+% Sans-serif font
+% Use Arial if present on the system
+\IfFontExistsTF{Arial}{
+	\setsansfont[Ligatures=Common]{Arial}%
+} {
+	% Otherwise, just use the default LaTeX sans serif face
+}
+% Titling font
+% Use Arial Bold if present on the system
+\IfFontExistsTF{Arial Bold}{
+	\newfontfamily\titlingfont[Ligatures=Common]{Arial Bold}
+} {
+	% Otherwise, just use the default LaTeX sans serif face as the titling face
+	\def\titlingfont{\sffamily}
+}
+% Math font
+\RequirePackage[mathup=sym]{unicode-math}
+\setmathfont{Latin Modern Math} % use the default LaTeX math font
+
+% Font sizes for text elements
+\setbeamerfont{title}{size=\LARGE,family=\titlingfont,series=\bfseries} % title in large font, titling, and bold
+\setbeamerfont{subtitle}{size=\normalsize,family=\titlingfont} % subtitle slightly smaller, titling
+\setbeamerfont{author}{size=\normalsize,family=\titlingfont,series=\bfseries} % author slightly smaller, titling, and bold
+\setbeamerfont{institute}{size=\normalsize,family=\titlingfont} % institution slightly smaller, titling
+\setbeamerfont{date}{size=\normalsize,family=\titlingfont} % date/event slightly smaller, titling
+\setbeamerfont{section title}{size=\LARGE,family=\titlingfont,series=\bfseries} % for section title in section frame
+\setbeamerfont{section}{size=\normalsize,family=\titlingfont,series=\bfseries} % section slightly smaller, sans serif, and bold
+\setbeamerfont{subsection}{size=\normalsize,family=\titlingfont} % subsection slightly smaller, sans serif
+\setbeamerfont{frametitle}{size=\Large,family=\titlingfont,series=\bfseries} % frame title in large font, titling, and bold
+\setbeamerfont{framesubtitle}{size=\normalsize,family=\titlingfont} % frame subtitle slightly smaller, titling
+\setbeamerfont{verse}{size=\normalsize,family=\rmfamily,series=\upshape} % breakout text is always set in upright serif at normal size
+\setbeamerfont{quote}{size=\normalsize,family=\rmfamily,series=\upshape} % breakout text is always set in upright serif at normal size
+\setbeamerfont{quotation}{size=\normalsize,family=\rmfamily,series=\upshape} % breakout text is always set in upright serif at normal size
+\setbeamerfont{pagenumber}{size=\small} % page number small
+\mode<all>

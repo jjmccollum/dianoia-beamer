@@ -1,0 +1,123 @@
+\mode<presentation>
+
+\RequirePackage{color}
+\definecolor{Red100}{RGB}{237,12,0}
+\definecolor{Purple100}{RGB}{60,16,83}
+\definecolor{Sand}{RGB}{232,227,219}
+
+\RequirePackage{adjustbox} % for trimming background images to fit aspect ratio
+
+%Background pattern template
+\setbeamertemplate{background}{
+	% If the current slide is not the title slide, then use a simpler layout
+	\ifnum\thepage>1\relax
+		\begin{tikzpicture}
+			\fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);%
+			\fill[color=Sand] (0,\the\paperheight) --  (11/20*\the\paperwidth,\the\paperheight) --  (\the\paperwidth/2,14/15*\the\paperheight) -- (0,14/15*\the\paperheight) -- cycle;% top border polygon
+			\fill[color=Sand] (\the\paperwidth/2,0) -- (11/20*\the\paperwidth,\the\paperheight/15) --  (\the\paperwidth,\the\paperheight/15) --  (\the\paperwidth,0) -- cycle;% bottom border polygon
+			% Insert the content slide logo in the upper-right corner
+			\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,24/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
+		\end{tikzpicture}
+	\else
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0pt] (bg) at (0,0) {\adjincludegraphics[height=\paperheight,Clip={0.8889\paperheight-0.5\paperwidth} 0]{title-background.jpeg}};
+			% Insert the content slide logo in the lower-right corner
+			\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,1/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
+		\end{tikzpicture}
+	\fi
+}
+
+% Title page template
+\setbeamertemplate{title page}
+{
+	\begin{tikzpicture}
+		\node[anchor=north west,inner sep=0pt,text width=1/2*\the\paperwidth] (title) at (1/20*\the\paperwidth,19/27*\the\paperheight) {
+			\begin{beamercolorbox}[wd=0.45\paperwidth,ht=.2222\paperheight]{title page header}%
+				\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
+					\vfil%
+					{\usebeamerfont{title}\inserttitle}\par%
+					{\usebeamerfont{subtitle}\insertsubtitle}\par%
+					\vfil%
+				}%
+			\end{beamercolorbox}%
+		};
+		\node[anchor=north west,inner sep=0pt,text width=1/2*\the\paperwidth] (author) at (9/16*\the\paperwidth,17/27*\the\paperheight) {
+			\begin{beamercolorbox}{title page header}%
+				\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
+					\vfil%
+					{\usebeamerfont{author}\insertauthor}\par%
+					\ifx\insertinstitute\@empty% if there is no author institution, then add only the date
+						% do nothing
+					\else
+						{\usebeamerfont{institute}\insertinstitute}\par%
+					\fi
+					{\usebeamerfont{date}\insertdate}\par%
+					\vfil%
+				}%
+			\end{beamercolorbox}%
+		};
+	\end{tikzpicture}
+}
+
+% Section page template
+\defbeamertemplate*{section page}{irci}[1][]
+{
+	\begingroup
+	\setbeamertemplate{background}
+	{
+		\begin{tikzpicture}
+				\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+				\fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);% draw over any previous background in white
+				\fill[Sand,opacity=1] (0,4/27*\the\paperheight) rectangle (\the\paperwidth,23/27*\the\paperheight);% then use a sand background for everything but the bottom margin 
+				% Insert the content slide logo in the lower-right corner
+				\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,1/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
+				% Insert the section title box on the right-hand side
+				\node[anchor=north west,inner sep=0pt] (sectionbox) at (9/16*\the\paperwidth,23/27*\the\paperheight) {\includegraphics[height=.2222\paperheight]{section-box.png}};
+				% Insert the section title in this box
+				\node[anchor=north west,inner sep=0pt,text width=1/2*\the\paperwidth] (title) at (10/16*\the\paperwidth,23/27*\the\paperheight) {
+					\begin{beamercolorbox}[wd=0.45\paperwidth,ht=.2222\paperheight]{section title}%
+						\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
+							\vfil%
+							{\usebeamerfont{section title}\insertsection}\par%
+							\vfil%
+						}%
+					\end{beamercolorbox}%
+				};
+		\end{tikzpicture}
+	}
+	\endgroup
+}
+% Invoke a section frame with this command
+\newcommand*{\sectionframe}{
+	{
+	\begingroup % do all of this in a group, as we'll be temporarily resetting templates
+	\thispagestyle{empty} % no frame number on this frame
+	\setbeamertemplate{background} % use a completely different background for this frame
+	{
+		\begin{tikzpicture}
+				\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+				\fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);% draw over any previous background in white
+				\fill[Sand,opacity=1] (0,4/27*\the\paperheight) rectangle (\the\paperwidth,\the\paperheight);% then use a sand background for everything but the bottom margin 
+				% Insert the content slide logo in the lower-right corner
+				\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,1/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
+				% Insert the section title box on the right-hand side
+				\node[anchor=north east,inner sep=0pt] (sectionbox) at (15/16*\the\paperwidth,23/27*\the\paperheight) {\includegraphics[width=0.375\paperwidth]{section-box.png}};
+				% Insert the section title in this box
+				\node[anchor=north east,inner sep=0pt] (title) at (15/16*\the\paperwidth,22/27*\the\paperheight) {%
+					\begin{beamercolorbox}[wd=0.375\paperwidth,ht=.2\paperwidth,leftskip=0.05\paperwidth]{section title}
+						\vbox to .2\paperwidth{% we use \vbox and \vfil to center the content of this box vertically
+							\vfil%
+							{\usebeamerfont{section title}\insertsection}\par%
+							\vfil%
+						}
+					\end{beamercolorbox}
+				};
+		\end{tikzpicture}
+	}
+	\frame{\sectionpage}
+	\endgroup%
+}
+}
+
+\mode
+<all>
