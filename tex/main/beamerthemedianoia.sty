@@ -18,16 +18,6 @@
 \setbeamertemplate{bibliography item}{}% no icons before bibliography entries
 
 % Quote environment settings
-\renewenvironment{verse}{%
-	\list{}{%
-		\leftmargin1em% add a small margin for the quoted text
-		\rightmargin\leftmargin
-	}
-	\usebeamerfont{verse}
-	\usebeamercolor[fg]{verse}
-	\item\relax
-}
-{\endlist}
 \renewenvironment{quote}{%
 	\list{}{%
 		\leftmargin1em% add a small margin for the quoted text
@@ -61,6 +51,17 @@
 	leftmargin=0em, % align the bar of the frame with the rest of the text
 	innerleftmargin=0em
 ]{quote}
+\surroundwithmdframed[
+	topline=false,
+	bottomline=false,
+	rightline=false,
+	linecolor=Black20,
+	linewidth=2pt,
+	skipabove=\topsep,
+	skipbelow=\topsep,
+	leftmargin=0em, % align the bar of the frame with the rest of the text
+	innerleftmargin=0em
+]{quotation}
 
 % Theme fonts (comment this section out and replace it with \def\titlingfont{\sffamily} if you want to use plain LaTeX)
 \RequirePackage{fontspec}
