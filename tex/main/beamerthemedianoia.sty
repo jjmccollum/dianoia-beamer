@@ -17,6 +17,17 @@
 \setbeamertemplate{enumerate subsubitem}{\insertenumlabel .}% format enumerate item number as a single Arabic numeral
 \setbeamertemplate{bibliography item}{}% no icons before bibliography entries
 
+%Verse environment settings
+\renewenvironment{verse}{%
+	\list{}{%
+		\leftmargin1em% add a small margin for the verse
+		\rightmargin\leftmargin
+	}
+	\usebeamerfont{verse}
+	\usebeamercolor[fg]{verse}
+	\item\relax
+}
+{\endlist}
 % Quote environment settings
 \renewenvironment{quote}{%
 	\list{}{%
