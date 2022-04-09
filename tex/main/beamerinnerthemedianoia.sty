@@ -16,7 +16,7 @@
 			\fill[color=Sand] (0,\the\paperheight) --  (11/20*\the\paperwidth,\the\paperheight) --  (\the\paperwidth/2,14/15*\the\paperheight) -- (0,14/15*\the\paperheight) -- cycle;% top border polygon
 			\fill[color=Sand] (\the\paperwidth/2,0) -- (11/20*\the\paperwidth,\the\paperheight/15) --  (\the\paperwidth,\the\paperheight/15) --  (\the\paperwidth,0) -- cycle;% bottom border polygon
 			% Insert the content slide logo in the upper-right corner
-			\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,24/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
+			\node[anchor=north east,inner sep=0pt] (logo) at (\the\paperwidth,\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
 		\end{tikzpicture}
 	\else
 		\begin{tikzpicture}
