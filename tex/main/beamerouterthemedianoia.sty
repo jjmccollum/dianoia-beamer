@@ -23,9 +23,9 @@
 \setbeamertemplate{footline}
 {
 		\begin{beamercolorbox}[wd=0.5\paperwidth,dp=0.025\paperheight,leftskip=0.05\paperwidth]{page number in head/foot}
-			% Only print the page number if the current slide is not the title slide
+			% Only print the frame number if the current slide is not the title slide
 			\ifnum\thepage>1\relax
-				\usebeamerfont{pagenumber}\insertpagenumber%
+				\usebeamerfont{framenumber}\insertframenumber%
 			\fi
 		\end{beamercolorbox}
 }
