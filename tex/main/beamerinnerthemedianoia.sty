@@ -6,6 +6,7 @@
 \definecolor{Sand}{RGB}{232,227,219}
 
 \RequirePackage{adjustbox} % for trimming background images to fit aspect ratio
+\RequirePackage{setspace} % for setting line spacing locally
 
 %Background pattern template
 \setbeamertemplate{background}{
@@ -31,17 +32,18 @@
 \setbeamertemplate{title page}
 {
 	\begin{tikzpicture}
-		\node[anchor=north west,inner sep=0pt,text width=1/2*\the\paperwidth] (title) at (1/20*\the\paperwidth,19/27*\the\paperheight) {
+		\useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+		\node[anchor=north west,inner sep=0pt,text width=1/2*\the\paperwidth] (title) at (0*\the\paperwidth,22/27*\the\paperheight) {
 			\begin{beamercolorbox}[wd=0.45\paperwidth,ht=.2222\paperheight]{title page header}%
 				\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
 					\vfil%
-					{\usebeamerfont{title}\inserttitle}\par%
-					{\usebeamerfont{subtitle}\insertsubtitle}\par%
+					{\setstretch{1.0}\usebeamerfont{title}\inserttitle\\}%
+					{\setstretch{1.0}\usebeamerfont{subtitle}\insertsubtitle\\}%
 					\vfil%
 				}%
 			\end{beamercolorbox}%
 		};
-		\node[anchor=north west,inner sep=0pt,text width=7/16*\the\paperwidth] (author) at (9/16*\the\paperwidth,17/27*\the\paperheight) {
+		\node[anchor=north west,inner sep=0pt,text width=7/16*\the\paperwidth] (author) at (33/64*\the\paperwidth,19/27*\the\paperheight) {
 			\begin{beamercolorbox}{title page header}%
 				\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
 					\vfil%
@@ -78,7 +80,7 @@
 					\begin{beamercolorbox}[wd=0.45\paperwidth,ht=.2222\paperheight]{section title}%
 						\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
 							\vfil%
-							{\usebeamerfont{section title}\insertsection}\par%
+							{\setstretch{1.0}\usebeamerfont{section title}\insertsection\\}%
 							\vfil%
 						}%
 					\end{beamercolorbox}%
@@ -107,7 +109,7 @@
 					\begin{beamercolorbox}[wd=0.375\paperwidth,ht=.2\paperwidth,leftskip=0.05\paperwidth]{section title}
 						\vbox to .2\paperwidth{% we use \vbox and \vfil to center the content of this box vertically
 							\vfil%
-							{\usebeamerfont{section title}\insertsection}\par%
+							{\setstretch{1.0}\usebeamerfont{section title}\insertsection\\}%
 							\vfil%
 						}
 					\end{beamercolorbox}
