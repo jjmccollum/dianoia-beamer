@@ -68,23 +68,23 @@
 	\setbeamertemplate{background}
 	{
 		\begin{tikzpicture}
-				\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-				\fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);% draw over any previous background in white
-				\fill[Sand,opacity=1] (0,4/27*\the\paperheight) rectangle (\the\paperwidth,23/27*\the\paperheight);% then use a sand background for everything but the bottom margin 
-				% Insert the content slide logo in the lower-right corner
-				\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,1/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
-				% Insert the section title box on the right-hand side
-				\node[anchor=north west,inner sep=0pt] (sectionbox) at (9/16*\the\paperwidth,23/27*\the\paperheight) {\includegraphics[height=.2222\paperheight]{section-box.png}};
-				% Insert the section title in this box
-				\node[anchor=north west,inner sep=0pt,text width=1/2*\the\paperwidth] (title) at (10/16*\the\paperwidth,23/27*\the\paperheight) {
-					\begin{beamercolorbox}[wd=0.45\paperwidth,ht=.2222\paperheight]{section title}%
-						\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
-							\vfil%
-							{\setstretch{1.0}\usebeamerfont{section title}\insertsection\\}%
-							\vfil%
-						}%
-					\end{beamercolorbox}%
-				};
+			\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+			\fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);% draw over any previous background in white
+			\fill[Sand,opacity=1] (0,4/27*\the\paperheight) rectangle (\the\paperwidth,23/27*\the\paperheight);% then use a sand background for everything but the bottom margin 
+			% Insert the content slide logo in the lower-right corner
+			\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,1/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
+			% Insert the section title box on the right-hand side
+			\node[anchor=north west,inner sep=0pt] (sectionbox) at (9/16*\the\paperwidth,23/27*\the\paperheight) {\includegraphics[height=.2222\paperheight]{section-box.png}};
+			% Insert the section title in this box
+			\node[anchor=north west,inner sep=0pt,text width=1/2*\the\paperwidth] (title) at (10/16*\the\paperwidth,23/27*\the\paperheight) {
+				\begin{beamercolorbox}[wd=0.45\paperwidth,ht=.2222\paperheight]{section title}%
+					\vbox to .2222\paperheight{% we use \vbox and \vfil to center the content of this box vertically
+						\vfil%
+						{\setstretch{1.0}\usebeamerfont{section title}\insertsection\\}%
+						\vfil%
+					}%
+				\end{beamercolorbox}%
+			};
 		\end{tikzpicture}
 	}
 	\endgroup
@@ -97,23 +97,23 @@
 	\setbeamertemplate{background} % use a completely different background for this frame
 	{
 		\begin{tikzpicture}
-				\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-				\fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);% draw over any previous background in white
-				\fill[Sand,opacity=1] (0,4/27*\the\paperheight) rectangle (\the\paperwidth,\the\paperheight);% then use a sand background for everything but the bottom margin 
-				% Insert the content slide logo in the lower-right corner
-				\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,1/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
-				% Insert the section title box on the right-hand side
-				\node[anchor=north east,inner sep=0pt] (sectionbox) at (15/16*\the\paperwidth,23/27*\the\paperheight) {\includegraphics[width=0.375\paperwidth]{section-box.png}};
-				% Insert the section title in this box
-				\node[anchor=north east,inner sep=0pt] (title) at (15/16*\the\paperwidth,22/27*\the\paperheight) {%
-					\begin{beamercolorbox}[wd=0.375\paperwidth,ht=.2\paperwidth,leftskip=0.05\paperwidth]{section title}
-						\vbox to .2\paperwidth{% we use \vbox and \vfil to center the content of this box vertically
-							\vfil%
-							{\setstretch{1.0}\usebeamerfont{section title}\insertsection\\}%
-							\vfil%
-						}
-					\end{beamercolorbox}
-				};
+			\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+			\fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);% draw over any previous background in white
+			\fill[Sand,opacity=1] (0,4/27*\the\paperheight) rectangle (\the\paperwidth,\the\paperheight);% then use a sand background for everything but the bottom margin 
+			% Insert the content slide logo in the lower-right corner
+			\node[anchor=south east,inner sep=0pt] (logo) at (\the\paperwidth,1/27*\the\paperheight) {\includegraphics[height=0.0741\paperheight]{dianoia-logo.pdf}};
+			% Insert the section title box on the right-hand side
+			\node[anchor=north east,inner sep=0pt] (sectionbox) at (15/16*\the\paperwidth,23/27*\the\paperheight) {\includegraphics[width=0.375\paperwidth]{section-box.png}};
+			% Insert the section title in this box
+			\node[anchor=north east,inner sep=0pt] (title) at (29/32*\the\paperwidth,22/27*\the\paperheight) {%
+				\begin{beamercolorbox}[wd=0.375\paperwidth,ht=.2\paperwidth,leftskip=0.05\paperwidth]{section title}
+					\vbox to .2\paperwidth{% we use \vbox and \vfil to center the content of this box vertically
+						\vfil%
+						{\setstretch{1.0}\usebeamerfont{section title}\insertsection\\}%
+						\vfil%
+					}
+				\end{beamercolorbox}
+			};
 		\end{tikzpicture}
 	}
 	\frame{\sectionpage}
